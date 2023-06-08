@@ -5,7 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 
 export function App() {
-  const contacts = useSelector((state) => state.contacts);
+  const { items } = useSelector((state) => state.contacts);
   return (
     <div>
       <h1>Phonebook</h1>
@@ -13,7 +13,7 @@ export function App() {
       <h2>Contacts</h2>
       <Filter
       />
-      {contacts.length !== 0 && <ContactsList/>}
+      {items.length !== 0 && <ContactsList/>}
       <Toaster />
     </div>
   );
