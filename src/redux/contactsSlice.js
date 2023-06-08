@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import toast from 'react-hot-toast';
 import { fetchContacts, addContact, deleteContact } from './operations';
 
 const contactsInitialState = { items: [], isLoading: false, error: null };
