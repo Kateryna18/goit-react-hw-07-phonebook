@@ -1,0 +1,10 @@
+.errorCard {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 10px;
+}
+
+.img {
+    width: 500px;
+}

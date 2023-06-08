@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
-import toast, { Toaster } from 'react-hot-toast';
+import { Error } from './Error/Error'
+import { Toaster } from 'react-hot-toast';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchContacts } from '../redux/operations';
 import { BallTriangle } from 'react-loader-spinner';
@@ -14,8 +15,6 @@ export function App() {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-
-  const notify = () => toast.error(error);
 
   return (
     <div>
@@ -35,7 +34,7 @@ export function App() {
           visible={true}
         />
       )}
-      {error && <p>{notify}</p>}
+      {error && <Error/>}
       {items.length > 0 && <ContactsList />}
       <Toaster />
     </div>
