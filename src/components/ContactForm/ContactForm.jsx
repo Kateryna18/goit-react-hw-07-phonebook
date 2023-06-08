@@ -1,14 +1,14 @@
 import css from 'components/ContactForm/ContactForm.module.css';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
 import { useState } from 'react';
+import { addContact } from '../../redux/operations';
 
 
 export function ContactForm() {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
 
-  const contactData = { name, number };
+  const contactData = { name, phone };
 
   const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ export function ContactForm() {
             break;
     
           case 'number':
-            setNumber(e.target.value);
+            setPhone(e.target.value);
             break;
     
           default:
@@ -36,7 +36,7 @@ export function ContactForm() {
 
   const reset = () => {
     setName('');
-    setNumber('');
+    setPhone('');
   };
 
   return (
@@ -65,7 +65,7 @@ export function ContactForm() {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
             onChange={handleChange}
-            value={number}
+            value={phone}
           />
         </label>
       </div>
