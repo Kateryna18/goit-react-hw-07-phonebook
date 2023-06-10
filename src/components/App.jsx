@@ -16,6 +16,10 @@ export function App() {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+  // console.log(error)
+  // console.log(items.length > 0)
+  // console.log(isLoading)
+
   return (
     <div>
       <h1>Phonebook</h1>
@@ -35,7 +39,7 @@ export function App() {
         />
       )}
       {error && <Error/>}
-      {items.length > 0 && <ContactsList />}
+      {!error && items.length > 0 && <ContactsList />}
       <Toaster />
     </div>
   );
